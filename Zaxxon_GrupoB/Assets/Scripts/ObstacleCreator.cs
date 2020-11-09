@@ -15,20 +15,27 @@ public class ObstacleCreator : MonoBehaviour
     //Variables para generar columnas de forma random
     private float randomNumber;
     Vector3 RandomPos;
+
+    [SerializeField] float distanciaInicial = 8;
     
     // Start is called before the first frame update
     void Start()
     {
+        for(int n = 0; n <= 4; n++)
+        {
+            CrearColumna(n * distanciaInicial);
+        }
+
         //Lanzo la corrutina
         StartCoroutine("InstanciadorColumnas");
 
     }
 
     //Función que crea una columna en una posición Random
-    void CrearColumna()
+    void CrearColumna(float posZ = 0f)
     {
         randomNumber = Random.Range(0f, 7f);
-        RandomPos = new Vector3(randomNumber, 0, 0);
+        RandomPos = new Vector3(randomNumber, 0, posZ);
         //print(RandomPos);
         Vector3 FinalPos = InitPos.position + RandomPos;
         Instantiate(Columna, FinalPos, Quaternion.identity);
