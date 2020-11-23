@@ -21,12 +21,14 @@ public class SpaceshipMove : MonoBehaviour
 
     //Capturo el texto del UI que indicará la distancia recorrida
     [SerializeField] Text TextDistance;
+    [SerializeField] Text Posicion;
     
     // Start is called before the first frame update
     void Start()
     {
         //Llamo a la corrutina que hace aumentar la velocidad
         StartCoroutine("Distancia");
+  
         
     }
 
@@ -43,17 +45,28 @@ public class SpaceshipMove : MonoBehaviour
     {
         //Bucle infinito que suma 10 en cada ciclo
         //El segundo parámetro está vacío, por eso es infinito
-        for(int n = 0; ; n += 10)
+        for(int n = 0; ; n ++)
         {
             //Cambio el texto que aparece en pantalla
             TextDistance.text = "DISTANCIA: " + n;
 
             //Ejecuto cada ciclo esperando 1 segundo
             yield return new WaitForSeconds(1f);
+
+            if (n > 20 && n < 50) 
+            {
+                speed = 3.5f;
+            }
+            else if (n > 50)
+            {
+                speed = 4f;
+            }
         }
         
     }
 
+
+ 
 
 
     void MoverNave()
@@ -81,8 +94,9 @@ public class SpaceshipMove : MonoBehaviour
         float myPosY = transform.position.y;
         float myPosX = transform.position.x;
         print(myPosX);
+        Posicion.text = "POSICIÓN: X: " + (Mathf.Round(myPosX)) + " Y: " + (Mathf.Round(myPosY));
+        //Debug.Log(Mathf.Round(myPosX));
 
-      
 
         if (myPosX < -4.5 && desplX < 0)
         {

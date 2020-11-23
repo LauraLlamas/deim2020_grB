@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObstacleCreator : MonoBehaviour
 {
+    public GameObject Spaceship;
+    private SpaceshipMove spaceshipMove;
+
     //---SCRIPT ASOCIADO AL EMPTY OBJECT QUE CREARÁ LOS OBSTÁCULOS--//
 
     //Variable que contendré el prefab con el obstáculo
@@ -21,7 +24,10 @@ public class ObstacleCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int n = 0; n <= 4; n++)
+
+        spaceshipMove = Spaceship.GetComponent<SpaceshipMove>();
+
+        for (int n = 0; n <= 4; n++)
         {
             CrearColumna(n * distanciaInicial);
         }
@@ -49,7 +55,10 @@ public class ObstacleCreator : MonoBehaviour
         for (; ; )
         {
             CrearColumna();
-            yield return new WaitForSeconds(1f);
+            float interval = 4 / spaceshipMove.speed;
+            Debug.Log(interval);
+            yield return new WaitForSeconds(interval);
+            
         }
 
     }

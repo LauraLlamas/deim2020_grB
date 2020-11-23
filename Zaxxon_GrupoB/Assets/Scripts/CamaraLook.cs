@@ -18,7 +18,7 @@ public class CamaraLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Tarjet);
+        //transform.LookAt(Tarjet);
         Vector3 targetPosition = new Vector3(transform.position.x, playerPosition.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref camaraVelocity, smoothVelocity);
     }
