@@ -5,6 +5,10 @@ using UnityEngine.UI; //Importante importar esta librería para usar la UI
 
 public class SpaceshipMove : MonoBehaviour
 {
+
+
+    private ObstacleCreator obstacleCreator;
+
     //--SCRIPT PARA MOVER LA NAVE --//
 
     //Variable PÚBLICA que indica la velocidad a la que se desplaza
@@ -22,7 +26,8 @@ public class SpaceshipMove : MonoBehaviour
     //Capturo el texto del UI que indicará la distancia recorrida
     [SerializeField] Text TextDistance;
     [SerializeField] Text Posicion;
-    
+    [SerializeField] MeshRenderer myMesh;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +42,20 @@ public class SpaceshipMove : MonoBehaviour
     {
         //Ejecutamos la función propia que permite mover la nave con el joystick
         MoverNave();
-
+        
     }
+    /*
+   
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("chocado");
+        if (collision.gameObject.tag == "obstacle")
+        {
+            myMesh.enabled = false;
+            Time.timeScale = 0f;
+        }
+    }
+    */
 
     //Corrutina que hace cambiar el texto de distancia
     IEnumerator Distancia()
@@ -93,10 +110,21 @@ public class SpaceshipMove : MonoBehaviour
         
         float myPosY = transform.position.y;
         float myPosX = transform.position.x;
-        print(myPosX);
+       // print(myPosX);
         Posicion.text = "POSICIÓN: X: " + (Mathf.Round(myPosX)) + " Y: " + (Mathf.Round(myPosY));
         //Debug.Log(Mathf.Round(myPosX));
 
+
+        //Rotar
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.Rotate(0.0f, 0.0f, 10.0f, Space.World);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.Rotate(0.0f, 0.0f, -10.0f, Space.World);
+        }
 
         if (myPosX < -4.5 && desplX < 0)
         {
@@ -144,7 +172,9 @@ public class SpaceshipMove : MonoBehaviour
         }
 
 
+        
 
+        
 
     }
 }

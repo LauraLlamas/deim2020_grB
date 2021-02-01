@@ -15,7 +15,7 @@ public class ObstacleMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpaceShip = GameObject.Find("Spaceship");
+        SpaceShip = GameObject.Find("StarSparrow1");
         spaceshipMove = SpaceShip.GetComponent<SpaceshipMove>();
     }
 

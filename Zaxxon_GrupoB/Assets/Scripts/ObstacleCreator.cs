@@ -27,7 +27,7 @@ public class ObstacleCreator : MonoBehaviour
 
         spaceshipMove = Spaceship.GetComponent<SpaceshipMove>();
 
-        for (int n = 0; n <= 4; n++)
+        for (int n = 0; n <= 24; n++)
         {
             CrearColumna(n * distanciaInicial);
         }
@@ -56,7 +56,7 @@ public class ObstacleCreator : MonoBehaviour
         {
             CrearColumna();
             float interval = 4 / spaceshipMove.speed;
-            Debug.Log(interval);
+            //Debug.Log(interval);
             yield return new WaitForSeconds(interval);
             
         }
