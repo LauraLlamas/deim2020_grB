@@ -3,7 +3,12 @@ guid: 1765ac024ed5a474db5f03309777eeca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TextDistance: {instanceID: 0}
+  - Posicion: {instanceID: 0}
+  - myMesh: {instanceID: 0}
+  - Bala: {fileID: 1259865673663102, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
+  - Nave: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

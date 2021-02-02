@@ -40,7 +40,7 @@ public class ObstacleCreator : MonoBehaviour
     //Función que crea una columna en una posición Random
     void CrearColumna(float posZ = 0f)
     {
-        randomNumber = Random.Range(0f, 7f);
+        randomNumber = Random.Range(-7f, 7f);
         RandomPos = new Vector3(randomNumber, 0, posZ);
         //print(RandomPos);
         Vector3 FinalPos = InitPos.position + RandomPos;

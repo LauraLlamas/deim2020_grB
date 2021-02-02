@@ -7,9 +7,20 @@ public class SpaceshipCollider : MonoBehaviour
 {
     [SerializeField] MeshRenderer myMesh;
 
+    //Para acceder a las variables globales
+    GameObject initObject;
+    InitGame initGame;
 
-   
+  
 
+
+    private void Start()
+    {
+        //Obtemos el script de inicio
+        initObject = GameObject.Find("InitObject");
+        initGame = initObject.GetComponent<InitGame>();
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,21 +28,39 @@ public class SpaceshipCollider : MonoBehaviour
         {
             print("Hit");
             myMesh.enabled = false;
-            Time.timeScale = 0f;
 
-            StartCoroutine("Cambiar");
-            Cambiar();
-           
+            initGame.speed = 0;
+            //SceneManager.LoadScene("GameOver");
+            Invoke("CambiarEscena", 3f);
+            // StartCoroutine("Cambiar");
+            // Cambiar();
+
 
         }
 
        
-    }
 
+    }
+    /*
     IEnumerator Cambiar()
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("GameOver");
+        for(; ; )
+        {
+            print("a punto de cambiar");
+            yield return new WaitForSeconds(3f);
+            CambiarEscena();
+
+        }
+        
     }
+    */
+
+    void CambiarEscena()
+    {
+        SceneManager.LoadScene("GameOver");
+        print("HOOOOLA");
+    }
+
+
 
 }

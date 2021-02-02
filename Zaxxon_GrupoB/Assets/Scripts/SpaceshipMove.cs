@@ -28,13 +28,18 @@ public class SpaceshipMove : MonoBehaviour
     [SerializeField] Text Posicion;
     [SerializeField] MeshRenderer myMesh;
 
+    GameObject initObject;
+    InitGame initGame;
+
+
     // Start is called before the first frame update
     void Start()
     {
         //Llamo a la corrutina que hace aumentar la velocidad
         StartCoroutine("Distancia");
-  
-        
+
+        initObject = GameObject.Find("InitObject");
+        initGame = initObject.GetComponent<InitGame>();
     }
 
     // Update is called once per frame
@@ -43,6 +48,7 @@ public class SpaceshipMove : MonoBehaviour
         //Ejecutamos la función propia que permite mover la nave con el joystick
         MoverNave();
         
+
     }
     /*
    
@@ -177,5 +183,8 @@ public class SpaceshipMove : MonoBehaviour
         
 
     }
+
+
+  
 }
         

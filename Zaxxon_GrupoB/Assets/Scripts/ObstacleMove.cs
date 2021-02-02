@@ -12,11 +12,19 @@ public class ObstacleMove : MonoBehaviour
     public GameObject SpaceShip;
     SpaceshipMove spaceshipMove;
 
+    //Para acceder a las variables globales
+    GameObject initObject;
+    InitGame initGame;
+
     // Start is called before the first frame update
     void Start()
     {
         SpaceShip = GameObject.Find("StarSparrow1");
         spaceshipMove = SpaceShip.GetComponent<SpaceshipMove>();
+
+        //Obtemos el script de inicio
+        initObject = GameObject.Find("InitObject");
+        initGame = initObject.GetComponent<InitGame>();
     }
 
     // Update is called once per frame
@@ -32,7 +40,9 @@ public class ObstacleMove : MonoBehaviour
         }
 
         //Asignamos una velocidad fija (de momento)
-        obstacleSpeed = 2.5f;
+        //obstacleSpeed = 2.5f;
+        obstacleSpeed = initGame.speed;
+        print(obstacleSpeed);
         transform.Translate(Vector3.back * Time.deltaTime * obstacleSpeed);
  
     }
