@@ -3,7 +3,9 @@ guid: c363965a7eb718b41827f6553b6789fc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Bala: {fileID: 1259865673663102, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
+  - Nave: {fileID: 1510364872509504, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

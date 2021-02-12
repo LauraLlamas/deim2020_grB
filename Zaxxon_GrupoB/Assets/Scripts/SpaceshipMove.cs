@@ -27,6 +27,8 @@ public class SpaceshipMove : MonoBehaviour
     [SerializeField] Text TextDistance;
     [SerializeField] Text Posicion;
     [SerializeField] MeshRenderer myMesh;
+   
+    
 
     GameObject initObject;
     InitGame initGame;
@@ -121,7 +123,8 @@ public class SpaceshipMove : MonoBehaviour
         //Debug.Log(Mathf.Round(myPosX));
 
 
-        //Rotar
+        //Rotar pulsando
+        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             transform.Rotate(0.0f, 0.0f, 10.0f, Space.World);
@@ -131,6 +134,7 @@ public class SpaceshipMove : MonoBehaviour
         {
             transform.Rotate(0.0f, 0.0f, -10.0f, Space.World);
         }
+        */
 
         if (myPosX < -4.5 && desplX < 0)
         {
@@ -169,22 +173,24 @@ public class SpaceshipMove : MonoBehaviour
         //Si estoy en los márgenes, me muevo
         if (inMarginMoveX)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * desplX);
+            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * desplX, Space.World);
 
         }
         if (inMarginMoveY)
         {
-            transform.Translate(Vector3.up * Time.deltaTime * moveSpeed * desplY);
+            transform.Translate(Vector3.up * Time.deltaTime * moveSpeed * desplY, Space.World);
         }
 
 
-        
+        transform.rotation = Quaternion.Euler(desplY * -20, 0, desplX * -20);
 
         
 
     }
 
+    
 
-  
+
+
 }
         

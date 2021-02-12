@@ -15,4 +15,14 @@ public class Botones : MonoBehaviour
     {
         SceneManager.LoadScene("zaxxon_scene1");
     }
+
+    public void Volver()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void Puntuacion()
+    {
+        SceneManager.LoadScene("Ranking");
+    }
 }

@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class SpaceshipCollider : MonoBehaviour
 {
     [SerializeField] MeshRenderer myMesh;
+    public GameObject SonidoExplosion;
+    public GameObject ExplosionParticulas;
 
     //Para acceder a las variables globales
     GameObject initObject;
     InitGame initGame;
+    Vector3 pos;
 
-  
+
 
 
     private void Start()
@@ -30,6 +33,9 @@ public class SpaceshipCollider : MonoBehaviour
             myMesh.enabled = false;
 
             initGame.speed = 0;
+            pos = transform.position;
+            Instantiate(SonidoExplosion);
+            Instantiate(ExplosionParticulas, pos, Quaternion.identity);
             //SceneManager.LoadScene("GameOver");
             Invoke("CambiarEscena", 3f);
             // StartCoroutine("Cambiar");
@@ -58,7 +64,7 @@ public class SpaceshipCollider : MonoBehaviour
     void CambiarEscena()
     {
         SceneManager.LoadScene("GameOver");
-        print("HOOOOLA");
+       
     }
 
 

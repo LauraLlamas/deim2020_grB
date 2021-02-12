@@ -28,10 +28,11 @@ public class Disparar : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             //bala sigue a la nave
-            pos = Nave.transform.position;
+            Vector3 aux = new Vector3(0, 0, 2);
+            pos = Nave.transform.position + aux;
             // crea la bala
             Instantiate(Bala, pos, Quaternion.identity);
-            transform.Translate(0 , 0, transform.position.z * velocidad * Time.deltaTime);
+            //transform.Translate(0 , 0, transform.position.z * velocidad * Time.deltaTime);
         }
     }
 }
