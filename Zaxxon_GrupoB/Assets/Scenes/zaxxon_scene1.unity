@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despl: {x: 0, y: 0}
-  scrollSpeed: 0
+  scrollSpeed: 0.39
 --- !u!1 &428738603
 GameObject:
   m_ObjectHideFlags: 0

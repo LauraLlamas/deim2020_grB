@@ -12,14 +12,14 @@ public class MoverSuelo : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
-        GameObject InitEmpty = GameObject.Find("InitEmpty");
+        GameObject InitEmpty = GameObject.Find("InitObject");
         InitGame = InitEmpty.GetComponent<InitGame>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        scrollSpeed = InitGame.speed / 2;
+        scrollSpeed = InitGame.speed / 7;
         float offset = Time.time * scrollSpeed;
         despl = new Vector2(0, -offset);
         rend.material.SetTextureOffset("Normalmap", despl);
